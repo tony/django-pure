@@ -72,8 +72,8 @@ Layout comparision
 
 .. _startproject: https://docs.djangoproject.com/en/1.8/ref/django-admin/#startproject-projectname-destination
 
-Differences from django-admin startapp
---------------------------------------
+Differences from ``django-admin startapp``
+------------------------------------------
 
 .. _startappdifferences:
 
