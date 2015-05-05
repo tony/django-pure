@@ -42,7 +42,7 @@ Here are the differences:
   to:
 
   ``BASE_DIR = os.path.dirname(os.path.abspath(__file__))``
-- See startappdifferences_ for more
+- Everything in *Differences from django-admin startapp* (startappdifferences_).
 
   ``startproject``: Doesn't include by ``{admin,tests,views}.py`` or
   ``migrations/`` by default.
