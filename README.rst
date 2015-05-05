@@ -10,8 +10,9 @@ can consolidate our best practices.
 Differences from ``django-admin startproject``
 ----------------------------------------------
 
-`startproject`_, ``django-admin startproject <project_name> [destiation]`` is the tool provided in django
-to launch a new project. Here are the differences:
+`startproject`_, ``django-admin startproject <project_name> [destiation]`` 
+is the tool provided in django to launch a new project. Here are the 
+differences:
 
 - ``startproject`` creates a project and a first application with the same
   name. ``{{ project_name }}/{{ project_name }}``.
@@ -32,10 +33,10 @@ to launch a new project. Here are the differences:
 - ``startproject`` will not include ``views.py``, ``tests.py``, ``admin.py``
   and ``migrations/`` in the same app.
 
-  ``django-pure``: adds boilerplate from ``startapp core`` for the
-  initial app, which includes ``views``, ``tests`` and ``admin``
-  module.
-  
+  ``django-pure``: adds boilerplate from ``django-admin startapp`` to the app, 
+  which includes ``views``, ``tests`` and ``admin`` module.
+
+  See `startapp`_ in django docs.
   
 Layout comparision
 ~~~~~~~~~~~~~~~~~~
@@ -70,6 +71,7 @@ Layout comparision
 
 
 .. _startproject: https://docs.djangoproject.com/en/1.8/ref/django-admin/#startproject-projectname-destination
+.. _startapp: https://docs.djangoproject.com/en/1.8/ref/django-admin/#startapp-app-label-destination
 
 Roadmap
 -------
