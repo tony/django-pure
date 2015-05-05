@@ -14,14 +14,17 @@ Differences from ``django-admin startproject``
 is the tool provided in django to launch a new project. Here are the 
 differences:
 
-- ``startproject`` creates a project and a first application with the same
-  name. ``{{ project_name }}/{{ project_name }}``.
-  
-  ``django-pure`` uses ``{{ project_name }}/core`` for the first app.
-- ``startproject`` will keep the wsgi, urls and settings module inside
-  the first app.
-  
-  ``django-pure``: Keeps urls, wsgi and settings in the root of the project
+- Name of first application:
+
+  ``startproject``: ``{{ project_name }}/{{ project_name }}``
+  ``django-pure``: ``{{ project_name }}/core``
+
+- ``ROOT_URLCONF``, ``WSGI_APPLICATION`` and ``DJANGO_SETTINGS_MODULE``
+  locations:
+
+  ``startproject``: stores ``wsgi.py``, ``urls.py`` and ``settings.py`` in 
+  first app.  
+  ``django-pure``: stores in project root
 - As a result of keeping them in root, ``BASE_DIR`` in ``settings.py`` is
   adjusted from:
 
