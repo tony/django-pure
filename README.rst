@@ -33,7 +33,7 @@ differences:
   to:
 
   ``BASE_DIR = os.path.dirname(os.path.abspath(__file__))``
-- See `startapp differences`_ for more
+- See startapp_differences_ for more
 
   ``startproject``: Doesn't include by ``{admin,tests,views}.py`` or
   ``migrations/`` by default.
@@ -72,7 +72,7 @@ Layout comparision
 
 .. _startproject: https://docs.djangoproject.com/en/1.8/ref/django-admin/#startproject-projectname-destination
 
-.. _startapp differences:
+.. _startapp_differences:
 
 Differences from ``django-admin startapp``
 ------------------------------------------
