@@ -72,10 +72,10 @@ Layout comparision
 
 .. _startproject: https://docs.djangoproject.com/en/1.8/ref/django-admin/#startproject-projectname-destination
 
-.. _startappdifferences:
-
 Differences from ``django-admin startapp``
 ------------------------------------------
+
+.. _startappdifferences:
 
 Confusingly perhaps, django's default app created with ``django-admin startproject``
 is not the same output as an app with ``django-admin startapp``.
