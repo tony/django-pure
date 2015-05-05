@@ -34,7 +34,6 @@ differences:
 
   ``BASE_DIR = os.path.dirname(os.path.abspath(__file__))``
 - See `startapp differences`_ for more
-  `Differences from ``django-admin startapp```_
 
   ``startproject``: Doesn't include by ``{admin,tests,views}.py`` or
   ``migrations/`` by default.
