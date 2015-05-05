@@ -33,13 +33,10 @@ differences:
   to:
 
   ``BASE_DIR = os.path.dirname(os.path.abspath(__file__))``
-- ``startproject`` will not include ``views.py``, ``tests.py``, ``admin.py``
-  and ``migrations/`` in the same app.
+- See `startapp differences`_ for more
 
-  ``django-pure``: adds boilerplate from ``django-admin startapp`` to the app, 
-  which includes ``views``, ``tests`` and ``admin`` module.
-
-  See `startapp`_ in django docs.
+  ``startproject``: Doesn't include by ``{admin,tests,views}.py`` or
+  ``migrations/`` by default.
   
 Layout comparision
 ~~~~~~~~~~~~~~~~~~
@@ -75,6 +72,8 @@ Layout comparision
 
 .. _startproject: https://docs.djangoproject.com/en/1.8/ref/django-admin/#startproject-projectname-destination
 
+.. _startapp differences:
+
 Differences from ``django-admin startapp``
 ------------------------------------------
 
@@ -83,6 +82,8 @@ is not the same output as an app with ``django-admin startapp``.
 
 ``django-pure`` mixes in the ``views.py``, ``tests.py``, ``models.py``
 and ``migrations/__init__.py`` into the core app.
+
+More: `startapp`_ in django docs.
 
 Layout comparision
 ~~~~~~~~~~~~~~~~~~
