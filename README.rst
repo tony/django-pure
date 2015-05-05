@@ -87,7 +87,7 @@ Layout comparision
 ``django-admin startapp`` example (omitting core app)::
 
     project_name
-    ├── second_app  <- mixed into ``start_project``'s app
+    ├── second_app  <- mixed into ``startproject``'s <project_name>/<project_name> app
     │   ├── admin.py
     │   ├── __init__.py
     │   ├── migrations
