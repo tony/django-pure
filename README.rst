@@ -71,6 +71,33 @@ Layout comparision
 
 
 .. _startproject: https://docs.djangoproject.com/en/1.8/ref/django-admin/#startproject-projectname-destination
+
+Differences from ``django-admin startapp``
+------------------------------------------
+
+Confusingly perhaps, django's default app created with ``django-admin startproject``
+is not the same output as an app with ``django-admin startapp``.
+
+``django-pure`` mixes in the ``views.py``, ``tests.py``, ``models.py``
+and ``migrations/__init__.py`` into the core app.
+
+Layout comparision
+~~~~~~~~~~~~~~~~~~
+
+``django-admin startapp`` example (omitting core app)::
+
+    project_name
+    ├── second_app  <- mixed into ``start_project``'s app
+    │   ├── admin.py
+    │   ├── __init__.py
+    │   ├── migrations
+    │   │   └── __init__.py
+    │   ├── models.py
+    │   ├── tests.py
+    │   └── views.py
+    └── manage.py
+
+
 .. _startapp: https://docs.djangoproject.com/en/1.8/ref/django-admin/#startapp-app-label-destination
 
 Roadmap
