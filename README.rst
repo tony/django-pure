@@ -29,41 +29,44 @@ to launch a new project. Here are the differences:
   to:
 
   ``BASE_DIR = os.path.dirname(os.path.abspath(__file__))``
+- ``startproject`` will not include ``views.py``, ``tests.py``, ``admin.py``
+  and ``migrations/`` in the same app.
+
+  ``django-pure``: adds boilerplate from ``startapp core`` for the
+  initial app, which includes ``views``, ``tests`` and ``admin``
+  module.
   
   
-## Comparison
+Layout comparision
+~~~~~~~~~~~~~~~~~~
 
-``django-admin startproject``:
+``django-admin startproject``::
 
-```
-project_name
-├── db.sqlite3
-├── project_name
-│   ├── __init__.py
-│   ├── settings.py
-│   ├── urls.py
-│   └── wsgi.py
-└── manage.py
-```
+    project_name
+    ├── db.sqlite3
+    ├── project_name
+    │   ├── __init__.py
+    │   ├── settings.py
+    │   ├── urls.py
+    │   └── wsgi.py
+    └── manage.py
 
-``django-pure``:
+``django-pure``::
 
-```
-project_name
-├── core
-│   ├── admin.py
-│   ├── __init__.py
-│   ├── migrations
-│   │   └── __init__.py
-│   ├── models.py
-│   ├── tests.py
-│   └── views.py
-├── db.sqlite3
-├── manage.py
-├── settings.py
-├── urls.py
-└── wsgi.py
-```  
+    project_name
+    ├── core
+    │   ├── admin.py
+    │   ├── __init__.py
+    │   ├── migrations
+    │   │   └── __init__.py
+    │   ├── models.py
+    │   ├── tests.py
+    │   └── views.py
+    ├── db.sqlite3
+    ├── manage.py
+    ├── settings.py
+    ├── urls.py
+    └── wsgi.py
 
 Roadmap
 -------
