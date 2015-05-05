@@ -26,6 +26,7 @@ Here are the differences:
 - Name of first application:
 
   ``startproject``: ``{{ project_name }}/{{ project_name }}``
+
   ``django-pure``: ``{{ project_name }}/core``
 
 - ``ROOT_URLCONF``, ``WSGI_APPLICATION`` and ``DJANGO_SETTINGS_MODULE``
@@ -33,9 +34,11 @@ Here are the differences:
 
   ``startproject``: stores ``wsgi.py``, ``urls.py`` and ``settings.py`` in 
   first app.  
+
   ``django-pure``: stores in project root
-- As a result of keeping them in root, ``BASE_DIR`` in ``settings.py`` is
-  adjusted from:
+- ``BASE_DIR`` in settings:
+
+  As a result of the structural change, ``BASE_DIR`` in ``settings.py``:
 
   ``BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))``
 
