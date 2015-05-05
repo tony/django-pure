@@ -10,9 +10,18 @@ can consolidate our best practices.
 Differences from ``django-admin startproject``
 ----------------------------------------------
 
-`startproject`_, ``django-admin startproject <project_name> [destiation]`` 
-is the tool provided in django to launch a new project. Here are the 
-differences:
+`startproject`_, ``django-admin startproject <project_name> [destination]`` 
+is the tool provided in django to launch a new project. 
+
+The `default project layout update in 1.4`_ fixed issues relating to
+imports in ``manage.py``, dependencies, but allowed custom templates
+for starter projects that didn't agree with the new default layout.
+
+``django-pure`` incorporates the benefit of the new ``manage.py`` but
+keeps project-specific modules adjacent to ``manage.py``. 
+The `ReadTheDocs.org Django Project`_ follows this convention.
+
+Here are the differences:
 
 - Name of first application:
 
@@ -37,6 +46,9 @@ differences:
 
   ``startproject``: Doesn't include by ``{admin,tests,views}.py`` or
   ``migrations/`` by default.
+
+.. _default project layout update in 1.4: https://docs.djangoproject.com/en/1.8/releases/1.4/#updated-default-project-layout-and-manage-py
+.. _ReadTheDocs.org Django Project: https://github.com/rtfd/readthedocs.org/tree/master/readthedocs
   
 Layout comparision
 ~~~~~~~~~~~~~~~~~~
