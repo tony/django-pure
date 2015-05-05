@@ -2,7 +2,7 @@
 django-pure
 ===========
 
-This is a culmination of years of best practices accumulated using django 
+Culmination of years of best practices accumulated using django 
 on SAAS projects. No more reinventing the wheel, with `cookiecutter`_ we 
 can consolidate our best practices.
 
@@ -10,7 +10,7 @@ can consolidate our best practices.
 Differences from ``django-admin startproject``
 ----------------------------------------------
 
-``djangoadmin startproject <project_name>`` is the tool provided in django
+`startproject`_, ``django-admin startproject <project_name> [destiation]`` is the tool provided in django
 to launch a new project. Here are the differences:
 
 - ``startproject`` creates a project and a first application with the same
@@ -67,6 +67,9 @@ Layout comparision
     ├── settings.py
     ├── urls.py
     └── wsgi.py
+
+
+.. _startproject: https://docs.djangoproject.com/en/1.8/ref/django-admin/#startproject-projectname-destination
 
 Roadmap
 -------
