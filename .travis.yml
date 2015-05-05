@@ -9,4 +9,4 @@ python:
 install: pip install -r project_name/requirements.txt
 
 # command to run tests, e.g. python setup.py test
-script: python ./project_name/manage.py
+script: python ./project_name/manage.py test
