@@ -2,6 +2,9 @@
 django-pure
 ===========
 
+.. image:: https://img.shields.io/travis/tony/django-pure.svg
+   :target: https://travis-ci.org/tony/django-pure
+
 Culmination of years of best practices accumulated using django 
 on SAAS projects. No more reinventing the wheel, with `cookiecutter`_ we 
 can consolidate our best practices.
