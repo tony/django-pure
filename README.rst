@@ -10,6 +10,15 @@ on SAAS projects. No more reinventing the wheel, with `cookiecutter`_ we
 can consolidate our best practices.
 
 
+Philosophy
+----------
+
+- Degrade gracefully: In absence of services on system, packages in
+  environments, catch errors and continue to run. This way sites can be
+  tested on local installations, staging systems without hacks.
+- Python 2.7+ and 3 compatible: Python 3.x ready
+- No frills: Leave the CSS / JS up to you. Only include the essentials.
+
 Differences from ``django-admin startproject``
 ----------------------------------------------
 
