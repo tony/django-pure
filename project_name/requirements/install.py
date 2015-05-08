@@ -84,7 +84,7 @@ def _get_requirements_file(env='requirements'):
     def get_path(a):
         return os.path.join(requirements_dir, "%s.txt" % a)
 
-    if ( # no magic unless DJANGO_SETTINGS_MODULE set
+    if (  # no magic unless DJANGO_SETTINGS_MODULE set
         'DJANGO_SETTINGS_MODULE' in os.environ
         and os.environ['DJANGO_SETTINGS_MODULE'] == env and "settings." in env
     ):
