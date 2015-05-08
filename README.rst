@@ -152,6 +152,14 @@ Instead of a ``requirements.txt`` for the project, a folder,
 Split Settings
 --------------
 
+Just like *Split Requirements*, the settings are split between
+environments.
+
+Continuous Integration
+----------------------
+
+Unit test across databases and python versions with `Travis CI`_.
+
 Roadmap
 -------
 
