@@ -1,13 +1,20 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""Requirements auto-installer.
+# pylint: disable=locally-disabled,C0330
+"""Django requirements auto-installer.
 
-Installer to autodetect packages based on DJANGO_SETTINGS_MODULE and system
-packages.
+Copyright 2015, Tony Narlock <tony@git-pull.com>. Licensed MIT.
+
+- Dynamically install python packages from pip.
+- Automatically install python packages from django manage.py.
+
+Install by vendorizing (include in your project):
+
+wget -O install.py <URL>
+curl -o install.py <URL>
+fetch -o install.py <URL>
 
 It can be as a command line application, or invoked from a ``manage.py``.
-
-Environmental Variables:
 
 """
 
@@ -72,12 +79,15 @@ def _get_requirements_file(env='requirements'):
 
     If DJANGO_SETTINGS_MODULE passed in, chop off "settings." from string.
 
-    If file doesn't exist, or doesn't exist, use "requirements.txt"
+    If file doesn't exist use "requirements.txt"
     """
     def get_path(a):
         return os.path.join(requirements_dir, "%s.txt" % a)
 
-    if "settings." in env:
+    if ( # no magic unless DJANGO_SETTINGS_MODULE set
+        'DJANGO_SETTINGS_MODULE' in os.environ
+        and os.environ['DJANGO_SETTINGS_MODULE'] == env and "settings." in env
+    ):
         env.replace("settings.", env)
 
     if os.path.isfile(get_path(env)):
@@ -94,10 +104,6 @@ def run(args):
 
     if args.settings:
         os.environ['DJANGO_SETTINGS_MODULE'] = args.settings
-
-    # pull environment from settings name
-    if 'DJANGO_SETTINGS_MODULE' in os.environ:
-        env = os.environ['DJANGO_SETTINGS_MODULE'].replace("settings.", "")
 
     try:
         requirements_file = _get_requirements_file(env)
