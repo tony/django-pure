@@ -13,11 +13,17 @@ can consolidate our best practices.
 Philosophy
 ----------
 
-- Degrade gracefully: In absence of services on system, packages in
-  environments, catch errors and continue to run. This way sites can be
-  tested on local installations, staging systems without hacks.
+- `12 factor`_, with modifications:
+  - 10. Dev/prod parity:
+  
+    Degrade gracefully: In absence of services on system, packages in
+    environments, catch errors and continue to run. This way sites can be
+    tested on local installations, staging systems without hacks.
 - Python 2.7+ and 3 compatible: Python 3.x ready
 - No frills: Leave the CSS / JS up to you. Only include the essentials.
+  
+  
+.. _12 factor: http://12factor.net/
 
 Differences from ``django-admin startproject``
 ----------------------------------------------
@@ -130,6 +136,21 @@ Layout comparision
 
 
 .. _startapp: https://docs.djangoproject.com/en/1.8/ref/django-admin/#startapp-app-label-destination
+
+Split Requirements
+------------------
+
+Instead of a ``requirements.txt`` for the project, a folder,
+``requirements/`` is created with:
+
+- ``local``
+- ``dev.txt``
+- ``staging.txt``
+- ``qa.txt``
+- ``prod.txt``
+  
+Split Settings
+--------------
 
 Roadmap
 -------
