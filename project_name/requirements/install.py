@@ -7,22 +7,14 @@ packages.
 
 It can be as a command line application, or invoked from a ``manage.py``.
 
-Arguments:
-
-    --force
-        continue installation of packages even if required system command not
-        found in PATHs
-
 Environmental Variables:
 
-    DJANGO_SETTINGS_MODULE
-        Will process settings.foo to requirements/foo.txt, will install if
-        exists.
 """
 
 from __future__ import print_function
 
 import os
+import warnings
 
 try:
     import pip
@@ -74,15 +66,45 @@ def _which(exe=None, throw=True):
 
 requirements_dir = os.path.dirname(os.path.abspath(__file__))
 
-requirements = {
-    "local": os.path.join(requirements_dir, "local.txt")
-}
+
+def _get_requirements_file(env='requirements'):
+    """Return requirements file.
+
+    If DJANGO_SETTINGS_MODULE passed in, chop off "settings." from string.
+
+    If file doesn't exist, or doesn't exist, use "requirements.txt"
+    """
+    def get_path(a):
+        return os.path.join(requirements_dir, "%s.txt" % a)
+
+    if "settings." in env:
+        env.replace("settings.", env)
+
+    if os.path.isfile(get_path(env)):
+        rfile = get_path(env)
+    else:
+        rfile = get_path('requirements')
+
+    return rfile
 
 
-def run(*args, **kwargs):
+def run(args):
     """Check and install application packages."""
-    print(args, kwargs)
-    pip.main(['install', '-r', requirements['local']])
+    env = None  # Forward-declaration
+
+    if args.settings:
+        os.environ['DJANGO_SETTINGS_MODULE'] = args.settings
+
+    # pull environment from settings name
+    if 'DJANGO_SETTINGS_MODULE' in os.environ:
+        env = os.environ['DJANGO_SETTINGS_MODULE'].replace("settings.", "")
+
+    try:
+        requirements_file = _get_requirements_file(env)
+    except KeyError:
+        warnings.warn("Requirements file %s not found." % requirements_file)
+
+    pip.main(['install', '-r', requirements_file])
 
 
 def _get_parser():
@@ -97,7 +119,16 @@ def _get_parser():
         '-f', '--force', dest='force',
         help='Force installation of packages.',
         action='store_true',
-        default=False
+    )
+
+    parser.add_argument(
+        '--settings', dest='settings',
+        help=("""
+            The Python path to a settings module, e.g.
+            "myproject.settings.main". If this isn't provided, the
+            DJANGO_SETTINGS_MODULE environment variable will be
+            used.
+        """),
     )
 
     return parser
