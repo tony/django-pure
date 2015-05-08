@@ -8,6 +8,19 @@ Copyright 2015, Tony Narlock <tony@git-pull.com>. Licensed MIT.
 - Dynamically install python packages from pip.
 - Automatically install python packages from django manage.py.
 
+Assumptions:
+
+project_name/
+    requirements/requirements.txt - default
+    requirements/dev.txt
+    requirements/<env>.txt
+    settings/__init__.py
+    settings/dev.py
+    settings/<env>.py
+
+Behaves like DJANGO_SETTINGS_MODULE and --settings. <env> is determined by
+chopping off "settings."
+
 Install by vendorizing (include in your project):
 
 wget -O install.py <URL>
